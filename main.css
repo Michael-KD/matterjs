@@ -1,0 +1,8 @@
+body {
+    padding: 0; margin: 0;
+}
+
+.controls {
+    position: absolute;
+    right: 0%;
+}

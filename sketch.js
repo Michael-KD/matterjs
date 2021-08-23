@@ -16,7 +16,12 @@ var ground;
 
 var mConstraint;
 
+
+
+
 function setup() {
+
+  
   var canvas = createCanvas(800, 800);
   engine = Engine.create();
   engine.world.gravity.y = 1;
@@ -61,15 +66,35 @@ function setup() {
   };
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
-  console.log(mConstraint);
 }
 
 function draw() {
+  let spawnRate = 0.97;
+  let minSize = 5;
+  let maxSize = 30;
+
+
   background(200);
   Engine.update(engine);
 
-  if (random(0, 1)> 0.97) {
-    let circle = new Particle(random(1, width), -10, random(5, 30), false);
+
+  // Spawn Rate Slider
+  let rateSlider = document.getElementById('spawnRate');
+  spawnRate = rateSlider.value;
+
+  // Min Size Slider
+  let minSizeSlider = document.getElementById('minSize');
+  minSize = minSizeSlider.value;
+
+  // Max Size Slider
+  let maxSizeSlider = document.getElementById('maxSize');
+  maxSize = maxSizeSlider.value;
+
+  
+
+
+  if (random(0, 100)< spawnRate) {
+    let circle = new Particle(random(1, width), -10, random(minSize, maxSize), false);
     particles.push(circle);
   }
   
