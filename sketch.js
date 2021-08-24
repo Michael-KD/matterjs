@@ -22,7 +22,7 @@ var mConstraint;
 function setup() {
 
   
-  var canvas = createCanvas(800, 800);
+  var canvas = createCanvas(windowWidth, windowHeight);
   engine = Engine.create();
   engine.world.gravity.y = 1;
   world = engine.world;
@@ -52,11 +52,12 @@ function setup() {
   //   prev = p;
   // }
 
-  boundaries.push(new Boundary(400, height, width*2, 50, 0));
-  boundaries.push(new Particle(200, 500, 100, true));
-  boundaries.push(new Particle(600, 200, 150, true));
-  boundaries.push(new Particle(100, 170, 50, true));
-  boundaries.push(new Particle(500, 600, 75, true));
+  boundaries.push(new Boundary(400, height+25, width*2, 50, 0));
+  boundaries.push(new Obstacle(1960, 400, 300, true));
+  boundaries.push(new Obstacle(1100, 350, 420, true));
+  boundaries.push(new Obstacle(1600, 180, 30, true));
+  boundaries.push(new Obstacle(1500, 900, 100, true));
+  boundaries.push(new Obstacle(250, 600, 200, true));
 
 
   var canvasmouse = Mouse.create(canvas.elt);
@@ -74,21 +75,21 @@ function draw() {
   let maxSize = 30;
 
 
-  background(200);
+  background(color('#f83d0c'));
   Engine.update(engine);
 
 
-  // Spawn Rate Slider
-  let rateSlider = document.getElementById('spawnRate');
-  spawnRate = rateSlider.value;
+  // // Spawn Rate Slider
+  // let rateSlider = document.getElementById('spawnRate');
+  // spawnRate = rateSlider.value;
 
-  // Min Size Slider
-  let minSizeSlider = document.getElementById('minSize');
-  minSize = minSizeSlider.value;
+  // // Min Size Slider
+  // let minSizeSlider = document.getElementById('minSize');
+  // minSize = minSizeSlider.value;
 
-  // Max Size Slider
-  let maxSizeSlider = document.getElementById('maxSize');
-  maxSize = maxSizeSlider.value;
+  // // Max Size Slider
+  // let maxSizeSlider = document.getElementById('maxSize');
+  // maxSize = maxSizeSlider.value;
 
   
 
@@ -99,12 +100,12 @@ function draw() {
   }
   
   for (var i = 0; i < boundaries.length; i++) {
-    boundaries[i].show();
+    boundaries[i].show(19, 19, 19);
     // Runs particles show for big circles in loop
   }
 
   for (var i = 0; i < particles.length; i++) {
-    particles[i].show(255, 0, 0);
+    particles[i].show(19, 19, 19);
     if (particles[i].fade <= 0 || particles[i].isOffScreen()) {
       particles[i].removeFromWorld();
       particles.splice(i, 1);

@@ -6,3 +6,29 @@ body {
     position: absolute;
     right: 0%;
 }
+
+.name {
+    position: absolute;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.first {
+    font-size: 124px;
+    left: 9%;
+    top: -7%;
+    text-decoration: underline;
+    text-decoration-thickness: 16px;
+}
+
+.last {
+    font-size: 68px;
+    left: 2%;
+    top: 9%;
+    text-decoration: underline;
+    text-decoration-thickness: 8px;
+}
+
+.k {
+    font-size: 124px;
+}
