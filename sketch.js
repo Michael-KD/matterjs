@@ -117,7 +117,7 @@ function setup() {
 function draw() {
   spawnRate = spawnRate || 1.5;
   let minSize = 7;
-  let maxSize = 30;
+  let maxSize = 37;
 
 
   background(color('#f83d0c'));
