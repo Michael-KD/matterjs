@@ -57,46 +57,46 @@ a {
 
 .info {
     position: absolute;
-    left: 42%;
-    top: 22%;
+    left: 800px;
+    top: 200px;
     font-size: 32px;
     width: 700px;
 }
 
 .info-title {
     position: absolute;
-    left: 55%;
-    top: 10%;
+    left: 1050px;
+    top: 90px;
     font-size: 62px;
     text-decoration: underline;
 }
 
 .hobbies {
     position: absolute;
-    left: 90%;
-    top: 40%;
+    left: 1680px;
+    top: 350px;
     font-size: 24px;
 }
 
 .hobbies-title {
     position: absolute;
-    left: 90%;
-    top: 30%;
+    left: 1700px;
+    top: 280px;
     font-size: 50px;
     text-decoration: underline;
 }
 
 .work {
     position: absolute;
-    left: 48%;
-    top: 65%;
+    left: 900px;
+    top: 590px;
     font-size: 24px;
 }
 
 .work-title {
     position: absolute;
-    left: 45%;
-    top: 63%;
+    left: 850px;
+    top: 560px;
     font-size: 32px;
     text-decoration: underline;
 }
@@ -128,8 +128,8 @@ a {
 .rate {
     border: none;
     position: absolute;
-    left: 75%;
-    top: 92%;
+    left: 1450px;
+    top: 850px;
     width: 70px;
     font-size: 30px;
     background-color: rgb(19, 19, 19);
