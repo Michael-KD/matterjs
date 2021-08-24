@@ -26,6 +26,40 @@ function setup() {
   engine = Engine.create();
   engine.world.gravity.y = 1;
   world = engine.world;
+
+  // engine.world.gravity.x = 1;
+
+  // document.body.addEventListener("wheel", function(e) {
+  //   // console.log('wheel', e);
+  //   engine.world.gravity.x = 1;
+  // });
+
+  var scrollableElement = document.body; //document.getElementById('scrollableElement');
+
+  scrollableElement.addEventListener('wheel', checkScrollDirection);
+  
+  function checkScrollDirection(event) {
+    if (checkScrollDirectionIsUp(event)) {
+      console.log('UP');
+      engine.world.gravity.x = -1;
+    } else {
+      console.log('Down');
+      engine.world.gravity.x = 1;
+    }
+  }
+  
+  function checkScrollDirectionIsUp(event) {
+    if (event.wheelDelta) {
+      return event.wheelDelta > 0;
+    }
+    return event.deltaY < 0;
+  }
+
+  document.body.addEventListener("auxclick", function(e) {
+    engine.world.gravity.x = 0;
+  });
+
+
   // Engine.run(engine);
 
   // var prev = null;
@@ -58,7 +92,6 @@ function setup() {
   boundaries.push(new Obstacle(1600, 180, 30, true));
   boundaries.push(new Obstacle(1500, 900, 100, true));
   boundaries.push(new Obstacle(250, 600, 200, true));
-console.log(height, width);
 
   var canvasmouse = Mouse.create(canvas.elt);
   canvasmouse.pixelRatio = pixelDensity();
@@ -70,14 +103,13 @@ console.log(height, width);
 }
 
 function draw() {
-  let spawnRate = 1.4;
+  let spawnRate = 15;
   let minSize = 7;
   let maxSize = 30;
 
 
   background(color('#f83d0c'));
   Engine.update(engine);
-
 
   // // Spawn Rate Slider
   // let rateSlider = document.getElementById('spawnRate');
