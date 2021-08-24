@@ -6,7 +6,7 @@ function Particle(x, y, r, fixed) {
   };
   this.body = Bodies.circle(x, y, r, options);
   this.r = r;
-  this.fade = 350;
+  this.fade = 400;
   World.add(world, this.body);
 
   this.isOffScreen = function() {
@@ -36,7 +36,7 @@ function Particle(x, y, r, fixed) {
     rectMode(CENTER);
     strokeWeight(1);
     noStroke();
-    this.fade = this.fade - 0.75;
+    this.fade = this.fade - 0.70;
     let c = color(r, g, b, this.fade)
     if (!r) {c = defaultRGB}
     fill(c||0);
