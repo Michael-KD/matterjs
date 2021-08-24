@@ -16,7 +16,7 @@ var ground;
 
 var mConstraint;
 
-
+let spawnRate = 15;
 
 
 function setup() {
@@ -33,6 +33,18 @@ function setup() {
   //   // console.log('wheel', e);
   //   engine.world.gravity.x = 1;
   // });
+
+
+  function scale (number, inMin, inMax, outMin, outMax) {
+    return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}
+
+
+  document.querySelector('.rate').addEventListener('input', updateValue);
+  function updateValue(e) {
+    spawnRate = scale(e.target.value, 0, 9, -1, 99);
+    console.log(spawnRate);
+  }
 
   var scrollableElement = document.body; //document.getElementById('scrollableElement');
 
@@ -103,7 +115,7 @@ function setup() {
 }
 
 function draw() {
-  let spawnRate = 15;
+  spawnRate = spawnRate || 15;
   let minSize = 7;
   let maxSize = 30;
 
