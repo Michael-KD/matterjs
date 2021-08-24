@@ -58,7 +58,7 @@ function setup() {
   boundaries.push(new Obstacle(1600, 180, 30, true));
   boundaries.push(new Obstacle(1500, 900, 100, true));
   boundaries.push(new Obstacle(250, 600, 200, true));
-
+console.log(height, width);
 
   var canvasmouse = Mouse.create(canvas.elt);
   canvasmouse.pixelRatio = pixelDensity();
@@ -70,8 +70,8 @@ function setup() {
 }
 
 function draw() {
-  let spawnRate = 0.97;
-  let minSize = 5;
+  let spawnRate = 1.25;
+  let minSize = 7;
   let maxSize = 30;
 
 

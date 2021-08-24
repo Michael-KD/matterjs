@@ -11,6 +11,7 @@ body {
     position: absolute;
     color: white;
     font-family: 'Raleway', sans-serif;
+    user-select: none;
 }
 
 .first {
@@ -31,4 +32,21 @@ body {
 
 .k {
     font-size: 124px;
+}
+
+.info {
+    position: absolute;
+    color: white;
+    left: 6%;
+    top: 62%;
+    font-size: 24px;
+}
+
+.info-title {
+    position: absolute;
+    color: white;
+    left: 11%;
+    top: 54%;
+    font-size: 50px;
+    text-decoration: underline;
 }
