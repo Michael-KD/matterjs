@@ -22,16 +22,16 @@ a {
 
 .first {
     font-size: 124px;
-    left: 9%;
-    top: -7%;
+    left: 170px;
+    top: -70px;
     text-decoration: underline;
     text-decoration-thickness: 16px;
 }
 
 .last {
     font-size: 68px;
-    left: 3%;
-    top: 9%;
+    left: 60px;
+    top: 80px;
     text-decoration: underline;
     text-decoration-thickness: 8px;
 }
