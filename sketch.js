@@ -70,7 +70,7 @@ console.log(height, width);
 }
 
 function draw() {
-  let spawnRate = 1.25;
+  let spawnRate = 1.4;
   let minSize = 7;
   let maxSize = 30;
 
