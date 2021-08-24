@@ -16,7 +16,7 @@ var ground;
 
 var mConstraint;
 
-let spawnRate = 15;
+let spawnRate = 1.66;
 
 
 function setup() {
