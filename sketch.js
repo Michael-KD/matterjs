@@ -42,7 +42,7 @@ function setup() {
 
   document.querySelector('.rate').addEventListener('input', updateValue);
   function updateValue(e) {
-    spawnRate = scale(e.target.value, 0, 9, -1, 99);
+    spawnRate = scale(e.target.value, 0, 9, -0.0000001, 15);
     console.log(spawnRate);
   }
 
@@ -115,7 +115,7 @@ function setup() {
 }
 
 function draw() {
-  spawnRate = spawnRate || 15;
+  spawnRate = spawnRate || 1.5;
   let minSize = 7;
   let maxSize = 30;
 
@@ -139,7 +139,7 @@ function draw() {
 
 
   if (random(0, 100)< spawnRate) {
-    let circle = new Particle(random(1, width), -10, random(minSize, maxSize), false);
+    let circle = new Particle(random(1, width), - 30, random(minSize, maxSize), false);
     particles.push(circle);
   }
   
