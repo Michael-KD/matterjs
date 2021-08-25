@@ -18,6 +18,16 @@ var mConstraint;
 
 let spawnRate = 1.66;
 
+let ball1;
+let ball2;
+let ball3;
+let ball4;
+let ball5;
+let ball6;
+let ball7;
+let sling1;
+let sling4;
+
 
 function setup() {
 
@@ -71,39 +81,48 @@ function setup() {
     engine.world.gravity.x = 0;
   });
 
-
-  // Engine.run(engine);
-
-  // var prev = null;
-  // for (var x = 200; x < 400; x += 20) {
-  //   var fixed = false;
-  //   if (!prev) {
-  //     fixed = true;
-  //   }
-  //   var p = new Particle(x, 100, 10, fixed);
-  //   // var p2 = new Particle(200, 150, 10);
-  //   particles.push(p);
-
-  //   if (prev) {
-  //     var options = {
-  //       bodyA: p.body,
-  //       bodyB: prev.body,
-  //       length: 20,
-  //       stiffness: 0.4
-  //     };
-  //     var constraint = Constraint.create(options);
-  //     World.add(world, constraint);
-  //   }
-
-  //   prev = p;
-  // }
-
+  
   boundaries.push(new Boundary(400, height+25, width*2, 50, 0));
-  boundaries.push(new Obstacle(1960, 400, 300, true));
-  boundaries.push(new Obstacle(1100, 350, 420, true));
-  boundaries.push(new Obstacle(1600, 180, 30, true));
-  boundaries.push(new Obstacle(1500, 900, 100, true));
-  boundaries.push(new Obstacle(250, 600, 200, true));
+  
+  
+  
+  ball2 = new Obstacle(1960, 400, 300, true)
+  boundaries.push(ball2);
+  ball3 = new Obstacle(1100, 350, 420, true)
+  boundaries.push(ball3);
+  ball4 = new Obstacle(1600, 180, 30, false)
+  boundaries.push(ball4);
+  ball5 = new Obstacle(1500, 900, 100, true)
+  boundaries.push(ball5);
+  ball6 = new Obstacle(250, 600, 200, true)
+  boundaries.push(ball6);
+
+  ball1 = new Obstacle(600, 750, 50, false);
+  boundaries.push(ball1);
+
+  
+  sling1 = Constraint.create({ 
+    pointA: { x: ball1.body.position.x, y: ball1.body.position.y }, 
+    bodyB: ball1.body, 
+    length: 0,
+    stiffness: 0.15,
+    damping: 1
+  });
+
+  sling4 = Constraint.create({ 
+    pointA: { x: ball4.body.position.x, y: ball4.body.position.y }, 
+    bodyB: ball4.body, 
+    length: 0,
+    stiffness: 0.15,
+    damping: 1
+  });
+
+  World.add(world, sling1);
+  World.add(world, sling4);
+
+console.log(sling1);
+
+
 
   var canvasmouse = Mouse.create(canvas.elt);
   canvasmouse.pixelRatio = pixelDensity();
@@ -122,6 +141,7 @@ function draw() {
 
   background(color('#f83d0c'));
   Engine.update(engine);
+
 
   // // Spawn Rate Slider
   // let rateSlider = document.getElementById('spawnRate');
@@ -157,11 +177,8 @@ function draw() {
     }
   }
 
-  // if (mConstraint.body) {
-  //   var pos = mConstraint.body.position;
-  //   var offset = mConstraint.constraint.pointB;
-  //   var m = mConstraint.mouse.position;
-  //   stroke(0, 255, 0);
-  //   line(pos.x + offset.x, pos.y + offset.y, m.x, m.y);
-  // }
+  // line(sling1.bodyB.position.x, sling1.bodyB.position.y, sling1.pointA.x, sling1.pointA.y);
+  // line(sling4.bodyB.position.x, sling4.bodyB.position.y, sling4.pointA.x, sling4.pointA.y);
+
+
 }
