@@ -28,8 +28,9 @@ let ball7;
 let sling1;
 let sling4;
 
-function setup() {
+let animate;
 
+function setup() {
   
 
   // document.body.style.zoom = "50%";
@@ -41,6 +42,14 @@ function setup() {
   engine.world.gravity.y = 1;
   world = engine.world;
 
+  animate = lottie.loadAnimation({
+    container: document.querySelector('.anim'), // the dom element that will contain the animation
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'js.json' // the path to the animation json
+  });
+  animate.setSpeed(0.4);
   
   var visited = localStorage.getItem('visited');
   if (!visited) {

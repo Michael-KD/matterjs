@@ -54,11 +54,31 @@ a {
     font-size: 50px;
     text-decoration: underline;
 }
+.skills {
+    position: absolute;
+    left: 750px;
+    top: 420px;
+    font-size: 24px;
+}
+
+.skills-title {
+    position: absolute;
+    left: 800px;
+    top: 370px;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.anim {
+    position: absolute;
+    left: 1305px;
+    top: 500px;
+}
 
 .info {
     position: absolute;
-    left: 800px;
-    top: 200px;
+    left: 790px;
+    top: 120px;
     font-size: 32px;
     width: 700px;
 }
@@ -66,7 +86,7 @@ a {
 .info-title {
     position: absolute;
     left: 1050px;
-    top: 90px;
+    top: 30px;
     font-size: 62px;
     text-decoration: underline;
 }
@@ -89,14 +109,14 @@ a {
 .work {
     position: absolute;
     left: 900px;
-    top: 590px;
+    top: 600px;
     font-size: 24px;
 }
 
 .work-title {
     position: absolute;
     left: 850px;
-    top: 560px;
+    top: 570px;
     font-size: 32px;
     text-decoration: underline;
 }
