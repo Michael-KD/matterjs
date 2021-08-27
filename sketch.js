@@ -28,15 +28,26 @@ let ball7;
 let sling1;
 let sling4;
 
-
 function setup() {
 
   
-  var canvas = createCanvas(windowWidth, windowHeight);
+
+  // document.body.style.zoom = "50%";
+
+  var canvas = createCanvas(1920, 937);
+  
+  console.log(windowWidth, windowHeight);
   engine = Engine.create();
   engine.world.gravity.y = 1;
   world = engine.world;
 
+  
+  var visited = localStorage.getItem('visited');
+  if (!visited) {
+    alert("Use control+ or control- to resize the page");
+    localStorage.setItem('visited', true);
+  }
+    
   // engine.world.gravity.x = 1;
 
   // document.body.addEventListener("wheel", function(e) {
@@ -56,30 +67,30 @@ function setup() {
     console.log(spawnRate);
   }
 
-  var scrollableElement = document.body; //document.getElementById('scrollableElement');
+  // var scrollableElement = document.body; //document.getElementById('scrollableElement');
 
-  scrollableElement.addEventListener('wheel', checkScrollDirection);
+  // scrollableElement.addEventListener('wheel', checkScrollDirection);
   
-  function checkScrollDirection(event) {
-    if (checkScrollDirectionIsUp(event)) {
-      console.log('UP');
-      engine.world.gravity.x = -1;
-    } else {
-      console.log('Down');
-      engine.world.gravity.x = 1;
-    }
-  }
+  // function checkScrollDirection(event) {
+  //   if (checkScrollDirectionIsUp(event)) {
+  //     console.log('UP');
+  //     engine.world.gravity.x = -1;
+  //   } else {
+  //     console.log('Down');
+  //     engine.world.gravity.x = 1;
+  //   }
+  // }
   
-  function checkScrollDirectionIsUp(event) {
-    if (event.wheelDelta) {
-      return event.wheelDelta > 0;
-    }
-    return event.deltaY < 0;
-  }
+  // function checkScrollDirectionIsUp(event) {
+  //   if (event.wheelDelta) {
+  //     return event.wheelDelta > 0;
+  //   }
+  //   return event.deltaY < 0;
+  // }
 
-  document.body.addEventListener("auxclick", function(e) {
-    engine.world.gravity.x = 0;
-  });
+  // document.body.addEventListener("auxclick", function(e) {
+  //   engine.world.gravity.x = 0;
+  // });
 
   
   boundaries.push(new Boundary(400, height+25, width*2, 50, 0));
@@ -138,7 +149,7 @@ function draw() {
   let minSize = 7;
   let maxSize = 37;
 
-
+  
   background(color('#f83d0c'));
   Engine.update(engine);
 
@@ -181,4 +192,8 @@ function draw() {
   // line(sling4.bodyB.position.x, sling4.bodyB.position.y, sling4.pointA.x, sling4.pointA.y);
 
 
+}
+
+function windowResized() {
+  location.reload();
 }
