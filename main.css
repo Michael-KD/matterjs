@@ -71,10 +71,15 @@ a {
 
 .anim {
     position: absolute;
-    left: 1305px;
-    top: 500px;
+    left: 1065px;
+    top: 546px;
 }
-
+.contact {
+    position: relative;
+    left: 35px;
+    top: -25px;
+    font-size: 14px;
+}
 .info {
     position: absolute;
     left: 790px;
